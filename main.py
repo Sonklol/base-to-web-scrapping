@@ -5,7 +5,6 @@ menu = int(input('Web Scrapping (https://github.com/Sonklol)\n1. BASE1\n2. BASE2
 
 if menu == 1:
     from base import scrap
-    scrap()
 elif menu == 2:
     from base2 import scrap
-    scrap()
+scrap()
