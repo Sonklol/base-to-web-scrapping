@@ -28,7 +28,12 @@ def scrap():
         response = Constructor.get_requests_with_tor(url)
         
         # Parsear el contenido HTML utilizando BeautifulSoup
-        soup = BeautifulSoup(response.content, 'html.parser')
+        try:
+            soup = BeautifulSoup(response.content, 'html.parser')
+        except AttributeError as e:
+            print(f"Se produjo un error de atributo: {str(e)}")
+        except Exception as e:
+            print(f"Se produjo un error: {str(e)}")
         
         # Encontrar los elementos HTML que contienen los nombres y precios de los productos
         product_name = soup.find_all('div', class_='top-area')
